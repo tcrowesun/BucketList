@@ -1,0 +1,59 @@
+
+<template name="navigation">
+  <body>
+
+    <div class="pageContainer">
+
+      <!-- Top Navigation Bar -->
+      <nav class="navbar-fixed-top navbar-inverse" role="navigation">
+        <div class="navbar-header">
+
+        </div>
+
+
+
+        <!-- App Name in Top Navigation Bar -->
+        <a class="navbar-brand">
+          <img src="BucketListLogoWhite.png" style="max-width: 120px; margin-top: -14px; margin-left:0px;">
+        </a>
+
+        <!-- Top Bar Buttons -->
+        <a id="accountButton"  onclick="showButtons();" class="navbar-brand navbar-right pull-right glyphicon glyphicon-menu-hamburger" style="margin-top: 0px; margin-right: 10px;"></a>
+        <div id="hideButtons">
+          <a id="accountButtonSignOut" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Logout</a>
+          <a id="accountButtonHistory" href="{{pathFor 'categories'}}" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Categories</a>
+          <a id="accountButtonHistory" href="{{pathFor 'past'}}" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Past Items</a>
+
+        </div>
+
+
+
+        <script>
+          var isTrue = false;
+
+          function showButtons(){
+            if(isTrue){
+              document.getElementById('hideButtons').style.display = "none";
+              isTrue = false;
+
+            }
+            else {
+              document.getElementById('hideButtons').style.display = "block";
+              isTrue = true;
+            }
+          }
+
+        </script>
+
+      </nav>
+      <!-- End Top Navigation Bar -->
+
+
+
+    </div>
+
+
+  </body>
+
+
+</template>
