@@ -18,8 +18,8 @@
         </a>
 
         <!-- Top Bar Buttons -->
-        <a id="accountButton"  onclick="showButtons();" class="navbar-brand navbar-right pull-right glyphicon glyphicon-menu-hamburger" style="margin-top: 0px; margin-right: 10px;"></a>
-        <div id="hideButtons">
+        <a id="accountButton"  onclick="{{showButtons}}" class="hamburger-menu navbar-brand navbar-right pull-right glyphicon glyphicon-menu-hamburger" style="margin-top: 0px; margin-right: 10px;"></a>
+        <div id="hideButtons" class="menu-buttons">
           <a id="accountButtonSignOut" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Logout</a>
           <a id="accountButtonHistory" href="{{pathFor 'categories'}}" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Categories</a>
           <a id="accountButtonHistory" href="{{pathFor 'past'}}" onclick="showButtons();" class="navbar-brand navbar-right pull-right" style="margin-top: 0px; margin-right: 10px;">Past Items</a>
@@ -35,19 +35,7 @@
 
 
       <script>
-        var isTrue = false;
 
-        function showButtons(){
-          if(isTrue){
-            document.getElementById('hideButtons').style.display = "none";
-            isTrue = false;
-
-          }
-          else {
-            document.getElementById('hideButtons').style.display = "block";
-            isTrue = true;
-          }
-        }
 
       </script>
 

@@ -1,5 +1,7 @@
 Tasks = new Mongo.Collection("tasks");
 
+var isTrue = false;
+
 if (Meteor.isClient) {
    // This code only runs on the client
   Template.simpleTodos.helpers({
@@ -51,6 +53,20 @@ if (Meteor.isClient) {
     },
     "click .delete": function () {
       Tasks.remove(this._id);
+    }
+  });
+
+  Template.navigation.events({
+    "click .hamburger-menu": function(){
+      if(isTrue){
+        $(".menu-buttons").fadeOut();
+        isTrue = false;
+
+      }
+      else {
+        $(".menu-buttons").fadeIn();
+        isTrue = true;
+      }
     }
   });
 }
