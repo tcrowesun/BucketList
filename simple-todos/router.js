@@ -2,7 +2,11 @@ Router.map(function(){
 
   this.route('simpleTodos', {path:'/'})
   this.route('task', {path:'/task'})
-  this.route('navigation', {path:'/navigation'})
+  this.route('categories', {path:'/categories'})
+  this.route('past', {path:'/past'})
+
+
+
 
 
 });
