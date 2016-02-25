@@ -23,12 +23,16 @@ if (Meteor.isClient) {
       event.preventDefault();
 
       // Get value from form element
-      var text = event.target.text.value;
+      var title = event.target.text.value;
 
       // Insert a task into the collection
       Tasks.insert({
-        text: text,
-        createdAt: new Date() // current time
+        title: title,
+        createdAt: new Date(), // current time
+        description: "",
+        completed: false,
+        category: "other",
+        reminder: ""
       });
 
       // Clear form
@@ -41,7 +45,9 @@ if (Meteor.isClient) {
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
       Tasks.update(this._id, {
-        $set: {checked: ! this.checked}
+        $set: {
+          checked: ! this.checked,
+          completed: !this.completed}
       });
     },
     "click .delete": function () {
@@ -49,7 +55,22 @@ if (Meteor.isClient) {
     }
   });
 
-
+  Template.taskPage.helpers({
+    statusLabel: function(complete){
+      if (complete === true) {
+        return 'label-success';
+      } else {
+        return 'label-danger';
+      }
+    },
+    statusValue: function(complete) {
+      if (complete === true) {
+        return 'complete';
+      } else {
+        return 'incomplete';
+      }
+    }
+  });
 
   Template.navigation.events({
     "click .hamburger-menu": function(){
