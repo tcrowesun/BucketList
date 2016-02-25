@@ -30,6 +30,7 @@ if (Meteor.isClient) {
         title: title,
         createdAt: new Date(), // current time
         description: "",
+        completed: false,
         category: "other",
         reminder: ""
       });
@@ -44,7 +45,9 @@ if (Meteor.isClient) {
     "click .toggle-checked": function () {
       // Set the checked property to the opposite of its current value
       Tasks.update(this._id, {
-        $set: {checked: ! this.checked}
+        $set: {
+          checked: ! this.checked,
+          completed: !this.completed}
       });
     },
     "click .delete": function () {
@@ -67,6 +70,10 @@ if (Meteor.isClient) {
         return 'incomplete';
       }
     }
+  });
+
+  Template.taskPage.events({
+    "submit .new-task"
   });
 
   Template.navigation.events({
