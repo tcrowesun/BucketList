@@ -1,4 +1,12 @@
 /* CSS declarations go here */
+
+.container {
+  width:375px;
+  margin: 0 auto;
+  min-height: 100%;
+  background: #ffffff;
+}
+
 #todoContainer{
 
 
@@ -19,16 +27,11 @@
     font-size: 14px;
   }
 
-  .container {
-    width:375px;
-    margin: 0 auto;
-    min-height: 100%;
-    background: #ffffff;
-  }
+
 
   header {
     background: #d2edf4;
-    background-image: linear-gradient(to bottom, #d0edf5, #e1e5f0 100%);
+    background-image: linear-gradient(to bottom, #d0edf5, #eee 100%);
     padding: 20px 15px 15px 15px;
     position: relative;
   }
@@ -41,8 +44,9 @@
     font-size: 1.5em;
     margin: 0;
     margin-bottom: 10px;
-    display: inline-block;
     margin-right: 1em;
+    text-align:center;
+    font-weight:bold;
   }
 
   form {
@@ -58,7 +62,12 @@
     border: none;
     width: 100%;
     padding-right: 80px;
-    font-size: 1em;
+    font-size: 20px;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color:#bbb;
+    padding-bottom:0px;
+    margin-bottom:10px;
   }
 
   .new-task input:focus{
@@ -69,7 +78,6 @@
     margin: 0;
     margin-top: 10px;
     padding: 0;
-    background: #f2f2f2;
   }
 
 

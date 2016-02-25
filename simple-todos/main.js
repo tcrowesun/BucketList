@@ -7,13 +7,13 @@ if (Meteor.isClient) {
   Template.simpleTodos.helpers({
     tasks: function () {
 
-        return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
+        return Tasks.find({completed: {$ne: true}}, {sort: {createdAt: -1}});
 
 
    },
 
     incompleteCount: function () {
-      return Tasks.find({checked: {$ne: true}}).count();
+      return Tasks.find({completed: {$ne: true}}).count();
     }
   });
 
@@ -42,12 +42,11 @@ if (Meteor.isClient) {
   });
 
   Template.task.events({
-    "click .toggle-checked": function () {
+    "click .check": function () {
       // Set the checked property to the opposite of its current value
       Tasks.update(this._id, {
         $set: {
-          checked: ! this.checked,
-          completed: !this.completed}
+          completed: true}
       });
     },
     "click .delete": function () {
@@ -104,7 +103,7 @@ if (Meteor.isClient) {
   Template.past.helpers({
       completedTasks: function () {
 
-        return Tasks.find({checked: {$ne: false}}, {sort: {createdAt: -1}});
+        return Tasks.find({completed: {$ne: false}}, {sort: {createdAt: -1}});
 
    },
 
