@@ -8,10 +8,10 @@ if (Meteor.isClient) {
     tasks: function () {
 
         return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
-  
-       
+
+
    },
-  
+
     incompleteCount: function () {
       return Tasks.find({checked: {$ne: true}}).count();
     }
@@ -38,7 +38,7 @@ if (Meteor.isClient) {
       // Clear form
         event.target.text.value = "";
     },
-    
+
   });
 
   Template.task.events({
@@ -92,10 +92,11 @@ if (Meteor.isClient) {
 
   Template.past.helpers({
       completedTasks: function () {
-      
+
         return Tasks.find({checked: {$ne: false}}, {sort: {createdAt: -1}});
-      
+
    },
+
 
   });
 }
