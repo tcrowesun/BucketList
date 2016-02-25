@@ -1,0 +1,28 @@
+<template name="categoryList">
+
+  <head>
+    <title>Category</title>
+  </head>
+
+  <body>
+
+    {{>navigation}}
+
+    <div id="todoContainer">
+
+      <div class="container" style="margin-top: 70px;">
+        <header>
+          <h1>Bucket List</h1>
+        </header>
+
+        <ul>
+          {{#each categoryTasks}}
+            {{> task}}
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
+  </body>
+
+</template>
