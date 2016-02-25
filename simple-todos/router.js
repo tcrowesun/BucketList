@@ -13,6 +13,7 @@ Router.route('/taskPage/:_id', function() {
   this.render('taskPage', {data: function(){
     return Tasks.findOne({_id: this.params._id});
   }});
+});
 
 Router.route('/categoryList/:_category', {
   path: '/categoryList/:_category',

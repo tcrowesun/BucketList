@@ -73,7 +73,18 @@ if (Meteor.isClient) {
   });
 
   Template.taskPage.events({
-    "submit .new-task"
+    "submit .new-task": function(){
+
+      event.preventDefault();
+
+      // Get value from form element
+      var title = event.target.text.value;
+
+
+      Tasks.update(this._id, {
+        $set: {description: title}
+      });
+    }
   });
 
   Template.navigation.events({
