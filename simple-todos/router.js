@@ -10,3 +10,6 @@ Router.route('/past', function() {
 Router.route('/categoryList/:_category', function() {
   this.render('categoryList');
 });
+Router.route('/login', function() {
+	this.render('login');
+});
