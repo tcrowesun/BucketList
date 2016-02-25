@@ -23,12 +23,15 @@ if (Meteor.isClient) {
       event.preventDefault();
 
       // Get value from form element
-      var text = event.target.text.value;
+      var title = event.target.text.value;
 
       // Insert a task into the collection
       Tasks.insert({
-        text: text,
-        createdAt: new Date() // current time
+        title: title,
+        createdAt: new Date(), // current time
+        description: "",
+        category: "other",
+        reminder: ""
       });
 
       // Clear form
@@ -49,7 +52,22 @@ if (Meteor.isClient) {
     }
   });
 
-
+  Template.taskPage.helpers({
+    statusLabel: function(complete){
+      if (complete === true) {
+        return 'label-success';
+      } else {
+        return 'label-danger';
+      }
+    },
+    statusValue: function(complete) {
+      if (complete === true) {
+        return 'complete';
+      } else {
+        return 'incomplete';
+      }
+    }
+  });
 
   Template.navigation.events({
     "click .hamburger-menu": function(){

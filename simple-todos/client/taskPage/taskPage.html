@@ -1,0 +1,59 @@
+<template name='taskPage'>
+
+  <head>
+    <title>{{title}}</title>
+  </head>
+
+  <body>
+
+    {{>navigation}}
+
+    <div id="todoContainer">
+
+      <div class="container" style="margin-top: 70px;">
+        <header>
+          <h1 style="font-size:200%">{{title}}</h1>
+
+          <span class="label {{statusLabel}}" style="font-size:90%;bottom:5px;position:relative">{{statusValue}}</span>
+        </header>
+
+      <ul>
+        <li>
+          <div class="row">
+            <label class="col-md-4">Created On:</label>
+            <div class="col-md-8">
+              <span>{{createdAt}}</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <label class="col-md-4">Category:</label>
+            <div class="col-md-8">
+              <span>{{category}}</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <label class="col-md-4">Reminder:</label>
+            <div class="col-md-8">
+              <span>{{reminder}}</span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="row">
+            <label class="col-md-4">Description:</label>
+            <div class="col-md-8">
+              <span>{{description}}</span>
+            </div>
+          </div>
+        </li>
+      </ul>
+
+      </div>
+    </div>
+    
+  </body>
+</template>
