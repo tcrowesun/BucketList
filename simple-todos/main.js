@@ -72,6 +72,10 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.taskPage.events({
+    "submit .new-task"
+  });
+
   Template.navigation.events({
     "click .hamburger-menu": function(){
       if(isTrue){
