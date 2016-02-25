@@ -1,8 +1,30 @@
 <template name="past">
 
+  <head>
+    <title>Completed</title>
+  </head>
 
+  <body>
 
+    {{>navigation}}
 
+    <div id="completedContainer">
 
+      <div class="container" style="margin-top: 70px;">
+        <header>
+          <h1>Completed </h1>
+
+        
+        </header>
+        <ul>
+          {{#each completedTasks}}
+            {{> task}}
+          {{/each}}
+        </ul>
+      </div>
+
+    </div>
+  </body>
 
 </template>
+
