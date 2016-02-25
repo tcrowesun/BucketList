@@ -1,13 +1,10 @@
 <template name="task">
 
   <div id="taskContainer">
-    <li class="{{#if checked}}checked{{/if}}">
-      <button class="delete">&times;</button>
-
-      <input type="checkbox" checked="{{checked}}" class="toggle-checked" />
-
-      <a href="/taskPage/{{_id}}"><span class="title">{{title}}</span></a>
-
+    <li>
+      <div class="taskButton"><div class="glyphicon glyphicon-ok check"></div></div>
+      <div style="width:470px; line-height:50px; padding-left:10px"><a href="/taskPage/{{_id}}"><span class="title">{{title}}</span></a></div>
+      <div class="taskButton"><div class="glyphicon glyphicon-remove delete"></div></div>
     </li>
   </div>
 
