@@ -1,13 +1,12 @@
-Router.map(function(){
-
-  this.route('simpleTodos', {path:'/'})
-  this.route('task', {path:'/task'})
-  this.route('categories', {path:'/categories'})
-  this.route('past', {path:'/past'})
-  this.route('categoryList', {path: 'categoryList/:_category'})
-
-
-
-
-
+Router.route('/', function() {
+  this.render('simpleTodos');
+});
+Router.route('/categories', function() {
+  this.render('categories');
+});
+Router.route('/past', function() {
+  this.render('past');
+});
+Router.route('/categoryList/:_category', function() {
+  this.render('categoryList');
 });
