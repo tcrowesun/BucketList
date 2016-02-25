@@ -15,6 +15,11 @@ Router.route('/taskPage/:_id', function() {
   }});
 });
 
+Router.route('/login', function() {
+	this.render('login');
+});
+
+
 Router.route('/categoryList/:_category', {
   path: '/categoryList/:_category',
   template: 'categoryList',
@@ -24,4 +29,5 @@ Router.route('/categoryList/:_category', {
       category: this.params._category
     }
   }
+
 });

@@ -24,3 +24,4 @@ twbs:bootstrap
 less
 ian:accounts-ui-bootstrap-3
 nemo64:bootstrap
+momentjs:moment

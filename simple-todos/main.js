@@ -4,6 +4,11 @@ var isTrue = false;
 
 if (Meteor.isClient) {
    // This code only runs on the client
+
+  Template.registerHelper('formatDate', function(date){
+    return moment(date).format('MM-DD-YYYY');
+  });
+
   Template.simpleTodos.helpers({
     tasks: function () {
 

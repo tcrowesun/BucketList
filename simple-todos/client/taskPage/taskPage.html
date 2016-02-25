@@ -20,15 +20,15 @@
       <ul>
         <li>
           <div class="row">
-            <label class="col-md-4 col-xs-6">Created On:</label>
+            <label class="col-md-4 col-xs-6">Created On</label>
             <div class="col-md-8 col-xs-12">
-              <span>{{createdAt}}</span>
+              <span>{{formatDate createdAt}}</span>
             </div>
           </div>
         </li>
         <li>
           <div class="row">
-            <label class="col-md-4 col-xs-6">Category:</label>
+            <label class="col-md-4 col-xs-6">Category</label>
             <div class="col-md-8 col-xs-12">
               <span>{{category}}</span>
             </div>
@@ -36,7 +36,7 @@
         </li>
         <li>
           <div class="row">
-            <label class="col-md-4 col-xs-6">Reminder:</label>
+            <label class="col-md-4 col-xs-6">Reminder</label>
             <div class="col-md-8 col-xs-12">
               <span>{{reminder}}</span>
             </div>
@@ -44,7 +44,7 @@
         </li>
         <li>
           <div class="row">
-            <label class="col-md-4 col-xs-6">Description:</label>
+            <label class="col-md-4 col-xs-6">Description</label>
             <div class="col-md-8 col-xs-12">
               <form class="description-edit">
                 <input type="text" name="description" value="{{description}}" />
