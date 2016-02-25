@@ -1,28 +1,22 @@
 <template name="categoryList">
 
-	<head>
-    <title>Food List</title>
+  <head>
+    <title>Category</title>
   </head>
 
   <body>
 
     {{>navigation}}
 
-    <div id="todoContainer">
+    <div id="categoryListContainer">
 
       <div class="container" style="margin-top: 70px;">
         <header>
-          <h1>Bucket List ({{incompleteCount}})</h1>
-
-          
-
-          <form class="new-task">
-            <input type="text" name="text" placeholder="Type to add new tasks" />
-          </form>
+          <h1>{{category}}</h1>
         </header>
 
         <ul>
-          {{#each tasks}}
+          {{#each categoryTasks}}
             {{> task}}
           {{/each}}
         </ul>
@@ -31,4 +25,4 @@
     </div>
   </body>
 
-</template> 
+</template>

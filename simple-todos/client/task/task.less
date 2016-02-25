@@ -1,5 +1,32 @@
 /* CSS declarations go here */
 #taskContainer{
+  height:50px;
+
+
+  .check{
+    width:100%;
+    height:100%;
+    font-size:30px;
+    line-height:50px;
+    margin-left:10px;
+  }
+
+  .delete {
+    width:100%;
+    height:100%;
+    font-size:30px;
+    line-height:50px;
+    margin-left:10px;
+  }
+
+  .title {
+    font-size:20px;
+  }
+
+  .taskButton{
+    width:50px;
+    background-color:#e2e2e2;
+  }
 
   body {
     font-family: sans-serif;
@@ -70,26 +97,21 @@
     background: white;
   }
 
-  .delete {
-    float: right;
-    font-weight: bold;
-    background: none;
-    font-size: 1em;
-    border: none;
-    position: relative;
-  }
+
 
   li {
-    position: relative;
     list-style: none;
-    padding: 15px;
-    border-bottom: #eee solid 1px;
+    height:100%;
   }
-
   li .text {
     margin-left: 10px;
   }
 
+  li div {
+    height:100%;
+    display:inline-block;
+    float:left;
+  }
   li.checked {
     color: #888;
   }
@@ -111,7 +133,7 @@
     margin-left: 5px;
   }
 
-  @media (max-width: 600px) {
+/*  @media (max-width: 600px) {
     li {
       padding: 12px 15px;
     }
@@ -124,7 +146,7 @@
     .new-task input {
       padding-bottom: 5px;
     }
-  }
+  }*/
 
 
 }

@@ -7,13 +7,13 @@ if (Meteor.isClient) {
   Template.simpleTodos.helpers({
     tasks: function () {
 
-        return Tasks.find({checked: {$ne: true}}, {sort: {createdAt: -1}});
-  
-       
+        return Tasks.find({completed: {$ne: true}}, {sort: {createdAt: -1}});
+
+
    },
-  
+
     incompleteCount: function () {
-      return Tasks.find({checked: {$ne: true}}).count();
+      return Tasks.find({completed: {$ne: true}}).count();
     }
   });
 
@@ -38,7 +38,7 @@ if (Meteor.isClient) {
       // Clear form
         event.target.text.value = "";
     },
-    
+
   });
 
   Template.task.events({
@@ -46,8 +46,7 @@ if (Meteor.isClient) {
       // Set the checked property to the opposite of its current value
       Tasks.update(this._id, {
         $set: {
-          checked: ! this.checked,
-          completed: !this.completed}
+          completed: true}
       });
     },
     "click .delete": function () {
@@ -72,6 +71,21 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.taskPage.events({
+    "submit .new-task": function(){
+
+      event.preventDefault();
+
+      // Get value from form element
+      var title = event.target.text.value;
+
+
+      Tasks.update(this._id, {
+        $set: {description: title}
+      });
+    }
+  });
+
   Template.navigation.events({
     "click .hamburger-menu": function(){
       if(isTrue){
@@ -88,10 +102,11 @@ if (Meteor.isClient) {
 
   Template.past.helpers({
       completedTasks: function () {
-      
-        return Tasks.find({checked: {$ne: false}}, {sort: {createdAt: -1}});
-      
+
+        return Tasks.find({completed: {$ne: false}}, {sort: {createdAt: -1}});
+
    },
+
 
   });
 }
