@@ -26,7 +26,8 @@ Router.route('/categoryList/:_category', {
   data: function () {
     return {
       categoryTasks: Tasks.find({category: this.params._category, completed: false}, {sort: {createdAt: -1}}),
-      category: this.params._category
+      category: this.params._category,
+      emptyTasks: Tasks.find({category: this.params._category, completed: false}, {sort: {createdAt: -1}}).count()===0
     }
   }
 

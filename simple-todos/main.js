@@ -129,7 +129,9 @@ if (Meteor.isClient) {
         return Tasks.find({completed: {$ne: false}}, {sort: {createdAt: -1}});
 
    },
-
+      emptyTasks: function(){
+        return Tasks.find({completed: {$ne: false}}).count()===0;
+      }
 
   });
 }

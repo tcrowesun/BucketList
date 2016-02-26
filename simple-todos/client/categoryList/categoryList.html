@@ -16,9 +16,13 @@
         </header>
 
         <ul>
-          {{#each categoryTasks}}
-            {{> task}}
-          {{/each}}
+          {{#if emptyTasks}}
+            <h2 style="color:grey; text-align:center;">No items here...</h2>
+          {{else}}
+            {{#each categoryTasks}}
+              {{> task}}
+            {{/each}}
+          {{/if}}
         </ul>
       </div>
 

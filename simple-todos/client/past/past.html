@@ -17,9 +17,14 @@
 
         </header>
         <ul>
-          {{#each completedTasks}}
-            {{> completeTask}}
-          {{/each}}
+          {{#if emptyTasks}}
+            <h2 style="color:grey; text-align:center;">No items here...</h2>
+          {{else}}
+            {{#each completedTasks}}
+              {{> completeTask}}
+            {{/each}}
+          {{/if}}
+
         </ul>
       </div>
 
