@@ -1,5 +1,5 @@
-Router.route('/', function() {
-  Session.set('prevBackPointer', '/');
+Router.route('/myList', function() {
+  Session.set('prevBackPointer', '/myList');
   this.render('simpleTodos');
 });
 
@@ -21,7 +21,7 @@ Router.route('/taskPage/:_id', function() {
   }});
 });
 
-Router.route('/login', function() {
+Router.route('/', function() {
 	this.render('login');
 });
 
