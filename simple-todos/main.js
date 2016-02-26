@@ -36,7 +36,7 @@ if (Meteor.isClient) {
         createdAt: new Date(), // current time
         description: "",
         completed: false,
-        category: "other",
+        category: "Other",
         reminder: ""
       });
 
@@ -52,6 +52,19 @@ if (Meteor.isClient) {
       Tasks.update(this._id, {
         $set: {
           completed: true}
+      });
+    },
+    "click .delete": function () {
+      Tasks.remove(this._id);
+    }
+  });
+
+  Template.completeTask.events({
+    "click .minus": function () {
+      // Set the checked property to the opposite of its current value
+      Tasks.update(this._id, {
+        $set: {
+          completed: false}
       });
     },
     "click .delete": function () {
