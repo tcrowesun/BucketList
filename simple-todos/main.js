@@ -75,6 +75,16 @@ if (Meteor.isClient) {
     }
   });
 
+  Template.nav_back.helpers({
+    backPointer: function() {
+      if (this.category !== undefined){
+        return Session.get('prevPrevBackPointer');
+      } else {
+        return Session.get('prevBackPointer');
+      }
+    }
+  });
+
   Template.taskPage.helpers({
     statusLabel: function(complete){
       if (complete === true) {
@@ -94,20 +104,23 @@ if (Meteor.isClient) {
 
   Template.taskPage.events({
     "click .reminder-edit": function(){
+      event.preventDefault;
       var val = event.target.id;
-
-      Tasks.update(this._id, {
+      Tasks.update(this.task._id, {
         $set: {reminder: val}
       })
     },
     "click .category-edit": function(){
+      event.preventDefault;
       var val = event.target.id;
 
-      Tasks.update(this._id, {
+      Tasks.update(this.task._id, {
         $set: {category: val}
       })
     }
   });
+
+
 
   Template.navigation.events({
     "click .hamburger-menu": function(){
