@@ -34,10 +34,9 @@ if (Meteor.isClient) {
       Tasks.insert({
         title: title,
         createdAt: new Date(), // current time
-        description: "",
         completed: false,
         category: "Other",
-        reminder: ""
+        reminder: "None"
       });
 
       // Clear form
@@ -90,17 +89,19 @@ if (Meteor.isClient) {
   });
 
   Template.taskPage.events({
-    "submit .new-task": function(){
-
-      event.preventDefault();
-
-      // Get value from form element
-      var title = event.target.text.value;
-
+    "click .reminder-edit": function(){
+      var val = event.target.id;
 
       Tasks.update(this._id, {
-        $set: {description: title}
-      });
+        $set: {reminder: val}
+      })
+    },
+    "click .category-edit": function(){
+      var val = event.target.id;
+
+      Tasks.update(this._id, {
+        $set: {category: val}
+      })
     }
   });
 
