@@ -19,6 +19,10 @@ if (Meteor.isClient) {
 
     incompleteCount: function () {
       return Tasks.find({completed: {$ne: true}}).count();
+    },
+
+    emptyTasks: function(){
+      return Tasks.find({completed: {$ne: true}}).count()===0;
     }
   });
 
