@@ -1,21 +1,20 @@
 <template name='taskPage'>
 
   <head>
-    <title>{{title}}</title>
+    <title>{{task.title}}</title>
   </head>
 
   <body>
 
-    {{>navigation}}
+    {{>nav_back}}
 
     <div id="taskPageContainer">
 
       <div class="container" style="margin-top: 70px;">
         <header>
-          <h1>{{title}}</h1>
+          <h1>{{task.title}}</h1>
 
           <span class="label {{statusLabel task.completed}}" style="font-size:90%;bottom:5px;position:relative">{{statusValue task.completed}}</span>
-          
         </header>
 
       <ul>
@@ -23,7 +22,7 @@
           <div class="row">
             <label class="col-md-4 col-xs-4">Created On</label>
             <div class="col-md-8 col-xs-8">
-              <span>{{formatDate createdAt}}</span>
+              <span>{{formatDate task.createdAt}}</span>
             </div>
           </div>
         </li>
@@ -33,10 +32,10 @@
             <div class="col-md-8 col-xs-8">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  {{category}}
+                  {{task.category}}
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" style="min-width:0px">
+                <ul class="dropdown-menu" style="min-width:0px; margin-top:0px">
                   <li><a href="#" class='category-edit' name="val" id="Food">Food</a></li>
                   <li><a href="#" class='category-edit' name="val" id="Goals">Goals</a></li>
                   <li><a href="#" class='category-edit' name="val" id="Movies">Movies</a></li>
@@ -54,10 +53,10 @@
             <div class="col-md-8 col-xs-8">
               <div class="dropdown">
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-                  {{reminder}}
+                  {{task.reminder}}
                   <span class="caret"></span>
                 </button>
-                <ul class="dropdown-menu" style="min-width:0px">
+                <ul class="dropdown-menu" style="min-width:0px; margin-top:0px">
                   <li><a href="#" class='reminder-edit' name="val" id="Yearly">Yearly</a></li>
                   <li><a href="#" class='reminder-edit' name="val" id="Monthly">Monthly</a></li>
                   <li><a href="#" class='reminder-edit' name="val" id="Weekly">Weekly</a></li>
@@ -69,7 +68,21 @@
           </div>
         </li>
         <li class='item-padding'>
-          <button class="btn btn-primary share-button">Share</button>
+          <button class="btn btn-primary share-button" data-toggle="modal" data-target=".my-modal">Share</button>
+          <div class="modal fade my-modal" tabindex="-1" role="dialog">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title">Share item to Facebook?</h4>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary" data-dismiss="modal">Share</button>
+                </div>
+              </div><!-- /.modal-content -->
+            </div><!-- /.modal-dialog -->
+          </div><!-- /.modal -->
         </li>
       </ul>
 
